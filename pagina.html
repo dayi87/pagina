@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>APA Interactiva</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>APA Interactiva</h1>
+      <p class="subtitle">Aprende jugando a aplicar las Normas APA</p>
+    </div>
+    <nav class="main-nav">
+      <button data-section="inicio" class="nav-btn active">Inicio</button>
+      <button data-section="videos" class="nav-btn">Videos</button>
+      <button data-section="practica" class="nav-btn">Práctica por niveles</button>
+      <button data-section="evaluacion" class="nav-btn">Evaluación final</button>
+      <label class="music-toggle">
+        <input type="checkbox" id="musicSwitch" /> Música
+      </label>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INICIO -->
+    <section id="inicio" class="page-section active">
+      <div class="card">
+        <h2>¿Qué es APA Interactiva?</h2>
+        <p>Herramienta web para practicar la aplicación de las Normas APA (7ª edición). Contiene videos explicativos, ejercicios dinámicos por niveles y una evaluación final. Avanza por niveles, gana estrellas y recibe retroalimentación inmediata.</p>
+        <div class="quick-info">
+          <div><strong>Dirigido a:</strong> Estudiantes de bachillerato</div>
+          <div><strong>Uso:</strong> Ilimitado</div>
+          <div><strong>Autora:</strong> Nahomy Dayanna Medina Pareja</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Instrucciones rápidas</h3>
+        <ol>
+          <li>Ve a la sección <strong>Videos</strong> para revisar los conceptos.</li>
+          <li>En <strong>Práctica por niveles</strong> realiza los ejercicios y gana estrellas.</li>
+          <li>Al completar todos los niveles, obtendrás el mensaje de felicitaciones.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="videos" class="page-section">
+      <div class="card">
+        <h2>Videos explicativos</h2>
+        <p>Revisa estos videos antes de practicar. (Reemplaza las URLs por tus videos si usas los tuyos).</p>
+        <div class="videos-grid">
+          <!-- Example video embeds - reemplaza src por tus URLs -->
+          <iframe src="https://www.youtube.com/embed/XXXXXXX" title="Video 1" allowfullscreen></iframe>
+          <iframe src="video.mp4" title="Video 2" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICA -->
+    <section id="practica" class="page-section">
+      <div class="card">
+        <h2>Práctica por niveles</h2>
+        <p>Resuelve cada ejercicio. Si aciertas, obtendrás estrellas. Si fallas, recibirás retroalimentación.</p>
+
+        <div id="levels" class="levels">
+          <!-- Nivel plantilla -->
+          <div class="level" data-level="1">
+            <h3>Nivel 1: Identificar tipo de cita</h3>
+            <p>Selecciona el tipo correcto de la siguiente cita: <em>"La educación transforma sociedades" (Pérez, 2020).</em></p>
+            <div class="choices">
+              <button data-answer="corta">Cita corta</button>
+              <button data-answer="larga">Cita larga</button>
+              <button data-answer="parafrasis">Paráfrasis</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="stars-container"></div>
+          </div>
+
+          <div class="level" data-level="2">
+            <h3>Nivel 2: Formato de cita corta</h3>
+            <p>Escribe la cita en el texto (autor y año) para la referencia: Autor: López, Año: 2019</p>
+            <input type="text" id="lvl2-input" placeholder="Ej: (López, 2019)" />
+            <button class="check-btn">Verificar</button>
+            <div class="feedback"></div>
+            <div class="stars-container"></div>
+          </div>
+
+          <div class="level" data-level="3">
+            <h3>Nivel 3: Ordenar referencia de libro</h3>
+            <p>Ordena correctamente (autor, año, título, editorial) rellenando el campo:</p>
+            <input type="text" id="lvl3-input" placeholder="Ej: Pérez, J. (2020). Título. Editorial." />
+            <button class="check-btn">Verificar</button>
+            <div class="feedback"></div>
+            <div class="stars-container"></div>
+          </div>
+
+          <div class="level" data-level="4">
+            <h3>Nivel 4: Referencia de página web</h3>
+            <p>Selecciona la opción correcta:</p>
+            <div class="choices">
+              <button data-answer="correct">Organización. (2020). Título. https://ejemplo.com</button>
+              <button data-answer="wrong">Título. Organización. (2020). https://ejemplo.com</button>
+            </div>
+            <div class="feedback"></div>
+            <div class="stars-container"></div>
+          </div>
+        </div>
+
+        <div class="level-controls">
+          <button id="prevLevel" class="ghost">Nivel anterior</button>
+          <button id="nextLevel">Siguiente nivel →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVALUACIÓN -->
+    <section id="evaluacion" class="page-section">
+      <div class="card">
+        <h2>Evaluación final</h2>
+        <p>Al terminar los niveles, revisa tu puntaje. Puedes repetir la evaluación las veces que quieras.</p>
+        <div id="resultBox" class="result-box">
+          <p>Estrellas acumuladas: <span id="totalStars">0</span> / 4</p>
+          <button id="resetProgress">Reiniciar progreso</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal felicitaciones -->
+  <div id="congratsModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>🎉 ¡Felicidades! 🎉</h2>
+      <p>Has aprobado el juego. ¡Excelente trabajo! Puedes seguir practicando cuando quieras.</p>
+      <button id="closeCongrats">Cerrar</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2025 – Desarrollado y creado por: Nahomy Dayanna Medina Pareja</p>
+  </footer>
+
+  <audio id="bgMusic" loop>
+    <source src="audio.mp4" type="audio/mpeg">
+  </audio>
+
+  <script src="java.js"></script>
+</body>
+</html>
